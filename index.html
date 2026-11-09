@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift for You ❤️</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffe6e8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff4b5c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        #content {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- หน้ากรอกรหัส -->
+    <div id="login-box" class="box">
+        <h2>🔒 กรอกวันครบรอบของเรานะ (DDMMYY)</h2>
+        <input type="password" id="passwordInput" placeholder="กรอกรหัสผ่าน...">
+        <button onclick="checkPassword()">เปิดของขวัญ</button>
+        <p id="errorMessage" style="color: red; display: none;">รหัสผ่านไม่ถูกต้อง ลองใหม่อีกทีนะ!</p>
+    </div>
+
+    <!-- หน้าเนื้อหาของขวัญ (จะซ่อนไว้ก่อน) -->
+    <div id="content" class="box">
+        <h1>Happy Anniversary! ❤️</h1>
+        <p>ยินดีด้วย! คุณเปิดของขวัญสำเร็จแล้ว ✨</p>
+        <!-- ใส่รูปภาพ วิดีโอ หรือข้อความความทรงจำตรงนี้ -->
+        <img src="https://via.placeholder.com/300" alt="รูปคู่" style="border-radius: 10px; width: 100%;">
+    </div>
+
+    <script>
+        function checkPassword() {
+            // ตั้งรหัสผ่านที่นี่ (ตัวอย่าง: 140224)
+            const secretCode = "140224"; 
+            const userPass = document.getElementById("passwordInput").value;
+
+            if (userPass === secretCode) {
+                document.getElementById("login-box").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                document.getElementById("errorMessage").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
